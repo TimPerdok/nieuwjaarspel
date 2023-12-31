@@ -8,26 +8,26 @@ const Container = styled.div.attrs(props => ({
   },
 }))`
 
-font-family: 'Roboto', sans-serif;
-position: absolute;
-bottom: 10rem;
-font-size: 20rem;
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  bottom: 2rem;
+  font-size: 12rem;
 
-text-align: center;
-text-shadow: 0px 0px 20px black;
+  text-align: center;
+  text-shadow: 0px 0px 20px black;
 
-user-select: none;
+  user-select: none;
 
+  z-index: 9999999;
 
+  transition: filter 0.1s ease-out;
 
-transition: filter 0.1s ease-out;
-
-color: ${({ color }: any) => color};
+  color: ${({ color }: any) => color};
 
 `
 
 const Shadow = styled.div`
-  box-shadow: 0px 0px 99999px 500px BLACK;
+  box-shadow: 0px 0px 99999px 400px BLACK;
   position: absolute;
   bottom: 0;
   height: 0px;

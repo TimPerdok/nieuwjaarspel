@@ -48,7 +48,7 @@ export default function Wheel({finish, options }: any) {
   const [spinning, setSpinning] = React.useState(true)
   const sound = useRef(new Howl({
     src: ['assets/spin.mp3'],
-    volume: 0.05
+    volume: 0.5
   }));
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
@@ -72,7 +72,7 @@ export default function Wheel({finish, options }: any) {
     let previousChoice: null = null;
 
 
-    let friction = randomNumberBetween(0.998, 0.999) // 0.995=soft, 0.99=mid, 0.98=hard
+    let friction = randomNumberBetween(0.985, 0.992) // 0.995=soft, 0.99=mid, 0.98=hard
     let ang = 0 // Angle in radians
     let angVel = 0 // Angular velocity
 
@@ -120,7 +120,7 @@ export default function Wheel({finish, options }: any) {
       framecount++;
       if (!angVel) return
       angVel *= friction // Decrement velocity by friction
-      if (angVel < 0.0001) {
+      if (angVel < 0.0002) {
         stop();
         return;
       }
@@ -139,7 +139,9 @@ export default function Wheel({finish, options }: any) {
 
     function spin() {
       if (angVel) return console.log("already spinning");
-      if (!angVel) angVel = rand(0.1, 0.2)
+      let randomnumber = rand(0.1, 0.8);
+      console.log(randomnumber)
+      if (!angVel) angVel = randomnumber
     }
 
     sectors.forEach(drawSector)
